@@ -1,73 +1,56 @@
-\chapter{Capítulo de prueba}
-\lipsum[1-2]\MarginNote{Hola soy un texto que se supone que debe de dar un salto de linea en algún momento}
-\lipsum[3]\MarginNote{Soy una nota al margen}
+\chapter{Introducción}
 
-\section{Sección de prueba}
+Deep Learning se enmarca en el área de las Ciencias de la Computación, que es el área de la \emphname{Inteligencia Artificial} (IA).
 
-En esta sección se probarán los entornos de los teoremas\FMG[Esto aparecerá en el índice]{Comprar pan}
-\subsection{Entornos con el estilo \textit{plain}}
+\section{Inteligencia Artificial antes de Machine Learning}
+El área de la IA se enfoca en crear procesos automáticos, que tenga un comportamiento ``inteligentes'', en donde nos referiremos a inteligente (de forma bastante egocéntrica) de que funcione como los humanos. Así mismo, dentro de la IA, se encuentra \emphname{Machine Learning} (ML) (aka Aprendizaje de Máquinas), en dónde algunos dicen que es más bien un área de la estadística. Pero para nuestros efectos, ML se encuentra dentro del área de la IA.
 
-\begin{theorem}\namethm[]{Teorema Choro}
-hola soy un teorema.
-\begin{equation}
-    e^{i\pi} + 1 = 0
-\end{equation}
-\end{theorem}
+\missingfigure{Imagen 1}
 
-\begin{lemma}[Lema Choro]
-HOLA soy un lema. Aquí va \emphname{un nombre}
-\end{lemma}
+La idea de la IA es que se tienen personas (con mucho dominio) que se juntan para resolver un problema tratando de emular de cómo se puede pensar que lo haría una persona. Lo que se haría usualmente en este caso, es fijarse de una regla que vincule las cosas que están mirando para tratar de emularlo. 
 
-\begin{corollary}[HOLA soy un corolario]
-soy un corolario.
-\end{corollary}
+Con esto, la IA se diferencia de ML en que en IA se necesita de mucha ingeniería y de mucho conocimiento experto que está decidiendo de cómo un humano toma decisiones en un algoritmo.
 
-\begin{proposition}[Proposición chora]
-HoLa Soy una proposición.
-\end{proposition}
+De esta forma, para la IA es muy importante el conocimiento experto: tanto de quien va a generar el proceso como de quién lo programa. 
 
+El cambio de paradigma al introducir ML, es la forma de mirar el problema, pues \textbf{no se va a querer} que un experto decida el cómo una máquina va a resolver el problema, si no que se quiere generar un algoritmo general que, a través de la experiencia, sepa cómo resolver el problema.
 
-\subsection{Entornos con el estilo \textit{definition}}
+\missingfigure{Imagen 2}
 
-\begin{definition}\namethm[]{EDO no lineal}
-una \textit{EDO no lineal} es simplemente una EDO que no es lineal.
-\end{definition}
+La \emphname[Experiencia]{experiencia}, desde la perspectiva humana, es lo que permite equivocarse y permitir aprender a partir de los errores anteriores. 
 
-\begin{exercise}[Ejercicio]
-Lo anterior es tan trivial que ni siquiera vale como ejercicio.
-\end{exercise}
+La \emphname[Tarea]{tarea} es lo que se quiere resolver específicamente. Por ejemplo, dada una foto, se quiere determinar si hay un gato, o dado un texto, se quiere saber si el texto es positivo o negativo.
 
-\begin{example}[Inserte un ejemplo aquí]
-Hola soy un ejemplo.
-\end{example}
+Por último, la \emphname[Métrica]{métrica} intenta determinar qué tan bien se está resolviendo el problema o la tarea. Sin embargo, ¿por qué cuando uno piensa en algoritmos usuales la métrica no aparece? porque usualmente evaluamos la efectividad de un modelo a partir de que si hace bien una tarea o no.
 
+Pero cuando se pasa al paradigma de ML, lo que se va a suponer es que el algoritmo puede no estar muy bueno, y la forma de evaluar esto es a través de una métrica
 
+La experiencia son los datos históricos, la tarea es lo que se quiere hacer y la métrica es para determinar lo ``que tan bien lo está haciendo''. Por lo usual, se quiere un algoritmo ``perfecto'' que no se equivoque, pero cuando se entra en el área de ML, vamos a tener la disposición de que el algoritmo se equivoque, y vamos a evaluar qué tan bien lo hace  a través de la métrica.
 
-\subsection{Entornos con el estilo \textit{remark}}
+En ML, con más experiencia, la misma tarea lo hará con mejor métrica.
 
-\begin{remark}[Observación]
-Estoy observando el teclado.
-\end{remark}
+Lo que nos convoca, es Deep Learning (DL), y este estará un poquito más adentro de ML
 
-\begin{note}[Nota importante]
-Comprar más leche de soja.
-\end{note}
-\begin{conclusion}[Conclusión final]
-En conclusión, me gusta el helado.
-\end{conclusion}
+\missingfigure{Imagen 3}
 
-\missingfigure{falta una figura}
+La diferencia entre ML y DL es que por lo usual, 
 
-\subsection{etc...}
-\lipsum[4-7]
+En el paradigma de ML, hay que pensar en cómo se representan los datos para pasarselos al computador. Por ejemplo, en el procesamiento de texto (en ML), se intenta contar la cantidad de palabras, un léxico de palabras positivas y negativas, etc. Esto se transforma en experiencia.
 
+Una de las razones de representar de buena forma, es para que el computador no exporte, incluso, un experto necesita decir la información importante para pasar a los algoritmos.
 
+Lo que pasa adentro (en DL) el cambio de paradigma es bastante radical. La diferencia crucial es evitar precomputar las características de los datos. Es decir, se intentará pasar los datos de forma muuuy cruda de la información. La promesa de DL es que si se le pasa la información muy cruda, ellos aprenderan las componentes principales para resolver la tarea.
 
-\subsection{Subsección de prueba}
-\lipsum[8]
-\subsection{Otra subsección de prueba}
-\lipsum[9-20]
-\chapter{Otro capítulo de prueba}
-\lipsum[10]
-\section{Hola soy otra sección de prueba}
-\lipsum[11-40]
+Esto es, que el algoritmo resuelve la tarea a la misma vez en que reconoce la información relevante. Es más, el nombre más moderno de Deep Learning, está siendo ``Representation Learning''.
+
+así, ya no se necesita decidir a priori, cómo representar la experiencia, pues DL lo hará solita.
+
+La forma de representar la experiencia se hará como una jerarquía. Paso a paso, intentará representar la información de forma más abstracta, y cuanto más profundo, más abstracto se hará.
+
+Por esto, el Deep viene de que esta representación es muy profunda y abstracta.
+
+Sin embargo, algunas veces se querra introducir algún tipo de sesgo para mejorar la métrica del algoritmo, pero de allí dependera caso a caso
+
+\section{¿Por qué Deep Learning?}
+
+\missingfigure{Imagen 4}
