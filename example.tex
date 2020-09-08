@@ -5,7 +5,11 @@ Deep Learning se enmarca en el área de las Ciencias de la Computación, que es 
 \section{Inteligencia Artificial antes de Machine Learning}
 El área de la IA se enfoca en crear procesos automáticos, que tenga un comportamiento ``inteligentes'', en donde nos referiremos a inteligente (de forma bastante egocéntrica) de que funcione como los humanos. Así mismo, dentro de la IA, se encuentra \emphname{Machine Learning} (ML) (aka Aprendizaje de Máquinas), en dónde algunos dicen que es más bien un área de la estadística. Pero para nuestros efectos, ML se encuentra dentro del área de la IA.
 
-\missingfigure{Imagen 1}
+\begin{wrapfigure}{r}{0.35\textwidth}
+  \begin{center}
+    \includegraphics[width=0.3\textwidth]{img/img001.png}
+  \end{center}
+\end{wrapfigure}
 
 La idea de la IA es que se tienen personas (con mucho dominio) que se juntan para resolver un problema tratando de emular de cómo se puede pensar que lo haría una persona. Lo que se haría usualmente en este caso, es fijarse de una regla que vincule las cosas que están mirando para tratar de emularlo. 
 
@@ -15,7 +19,11 @@ De esta forma, para la IA es muy importante el conocimiento experto: tanto de qu
 
 El cambio de paradigma al introducir ML, es la forma de mirar el problema, pues \textbf{no se va a querer} que un experto decida el cómo una máquina va a resolver el problema, si no que se quiere generar un algoritmo general que, a través de la experiencia, sepa cómo resolver el problema.
 
-\missingfigure{Imagen 2}
+\begin{wrapfigure}{l}{0.3\textwidth}
+  \begin{center}
+    \includegraphics[width=0.25\textwidth]{img/img002.png}
+  \end{center}
+\end{wrapfigure}
 
 La \emphname[Experiencia]{experiencia}, desde la perspectiva humana, es lo que permite equivocarse y permitir aprender a partir de los errores anteriores. 
 
@@ -23,34 +31,113 @@ La \emphname[Tarea]{tarea} es lo que se quiere resolver específicamente. Por ej
 
 Por último, la \emphname[Métrica]{métrica} intenta determinar qué tan bien se está resolviendo el problema o la tarea. Sin embargo, ¿por qué cuando uno piensa en algoritmos usuales la métrica no aparece? porque usualmente evaluamos la efectividad de un modelo a partir de que si hace bien una tarea o no.
 
-Pero cuando se pasa al paradigma de ML, lo que se va a suponer es que el algoritmo puede no estar muy bueno, y la forma de evaluar esto es a través de una métrica
+Pero cuando se pasa al paradigma de ML, lo que se va a suponer es que el algoritmo puede no estar muy bueno, y la forma de evaluar esto es a través de una métrica. Sin embargo, se tiene la promesa de que, a través de que se consiga más experiencia, el algoritmo desarrollará mejor una tarea.
 
-La experiencia son los datos históricos, la tarea es lo que se quiere hacer y la métrica es para determinar lo ``que tan bien lo está haciendo''. Por lo usual, se quiere un algoritmo ``perfecto'' que no se equivoque, pero cuando se entra en el área de ML, vamos a tener la disposición de que el algoritmo se equivoque, y vamos a evaluar qué tan bien lo hace  a través de la métrica.
+Es por esto que se llama ``Aprendizaje de Máquinas'', pues es el proceso en que uno le enseña a una máquina a cómo hacer una tarea.
 
-En ML, con más experiencia, la misma tarea lo hará con mejor métrica.
+% La experiencia son los datos históricos, la tarea es lo que se quiere hacer y la métrica es para determinar lo ``que tan bien lo está haciendo''. Por lo usual, se quiere un algoritmo ``perfecto'' que no se equivoque, pero cuando se entra en el área de ML, vamos a tener la disposición de que el algoritmo se equivoque, y vamos a evaluar qué tan bien lo hace  a través de la métrica.
 
-Lo que nos convoca, es Deep Learning (DL), y este estará un poquito más adentro de ML
+% En ML, con más experiencia, la misma tarea lo hará con mejor métrica.
 
-\missingfigure{Imagen 3}
+\section{Machine Learning antes del Deep Learning}
 
-La diferencia entre ML y DL es que por lo usual, 
+Lo que nos convoca, es \emphname[]{Deep Learning} (DL), y este estará un poquito más adentro de ML
 
-En el paradigma de ML, hay que pensar en cómo se representan los datos para pasarselos al computador. Por ejemplo, en el procesamiento de texto (en ML), se intenta contar la cantidad de palabras, un léxico de palabras positivas y negativas, etc. Esto se transforma en experiencia.
+\begin{wrapfigure}{r}{0.33\textwidth}
+  \begin{center}
+    \includegraphics[width=0.3\textwidth]{img/img003.png}
+  \end{center}
+\end{wrapfigure}
 
-Una de las razones de representar de buena forma, es para que el computador no exporte, incluso, un experto necesita decir la información importante para pasar a los algoritmos.
+La idea de la diferencia entre ML y DL es la siguiente: en general, los algoritmos de ML se separan en, elegir una tarea, elegir una métrica, y finalmente entregarle experiencia. Y la parte de la experiencia es crucial, pues en nuestro caso, es pasarle \textit{datos}.
 
-Lo que pasa adentro (en DL) el cambio de paradigma es bastante radical. La diferencia crucial es evitar precomputar las características de los datos. Es decir, se intentará pasar los datos de forma muuuy cruda de la información. La promesa de DL es que si se le pasa la información muy cruda, ellos aprenderan las componentes principales para resolver la tarea.
+Y es importante destacar en cómo hay que pasarle los datos, pues para ML, es crucial pensar en darle datos ``sencillitos'' o ``digeribles'' para el algoritmo. Típicamente se le llama las \emphname[]{características de la entrada}, esto es, la persona tiene que pensar la forma en que se representarán los datos para entregarle a los algoritmos.
 
-Esto es, que el algoritmo resuelve la tarea a la misma vez en que reconoce la información relevante. Es más, el nombre más moderno de Deep Learning, está siendo ``Representation Learning''.
+Una de las ventajas de esto, es que le simplifica la vida al algoritmo, pues al no pasarle una cantidad enorme de datos, la capacidad de cómputo se ve reducida significativamente.
 
-así, ya no se necesita decidir a priori, cómo representar la experiencia, pues DL lo hará solita.
+Y lo segundo, es que un experto en el área puede decidir cuales son los datos relevantes para resolver el problema. Esto se llama \emphname[]{extraer características} antes de pasárselo al computador.
 
-La forma de representar la experiencia se hará como una jerarquía. Paso a paso, intentará representar la información de forma más abstracta, y cuanto más profundo, más abstracto se hará.
+\section{Deep Learning como ``Representation Learning''}
 
-Por esto, el Deep viene de que esta representación es muy profunda y abstracta.
+Lo que pasa en DL, es que el cambio de paradigma es bastante radical. La diferencia crucial es evitar precomputar las características de los datos antes de pasárselas al computador. Es decir, se intentará pasar los datos de forma muy ``cruda'' de la información. 
 
-Sin embargo, algunas veces se querra introducir algún tipo de sesgo para mejorar la métrica del algoritmo, pero de allí dependera caso a caso
+La promesa de DL es que si se le pasa la información muy cruda, ellos aprenderán las componentes principales (o la representación correcta de los datos) de la tarea, \textbf{a la vez que resuelven la propia tarea}. Es más, el nombre más moderno de Deep Learning, está siendo ``Representation Learning'', pues es lo que hace el modelo al fin y al cabo.
+
+así, ya no se necesita decidir a priori cómo representar la experiencia, sino que DL lo hará de forma autónoma.
+
+La forma de representar la experiencia se construirá como una jerarquía. Partiendo desde la información menos abstracta (lo más crudo) hasta lo más abstracta (el resultado), y cuanto más \textit{profundo}, más abstracto se hará la información. Esto justifica el nombre de \textbf{Deep} en Deep Learning. Y lo que ha mostrado la experiencia, es que a medida que se agregan más capas de abstracción exista, mejor será la métrica del algoritmo.
+
+Sin embargo, algunas veces se querrá introducir algún tipo de sesgo para mejorar la métrica del algoritmo, pero de allí dependerá caso a caso.
 
 \section{¿Por qué Deep Learning?}
 
-\missingfigure{Imagen 4}
+\begin{wrapfigure}{l}{0.43\textwidth}
+  \begin{center}
+    \includegraphics[width=0.4\textwidth]{img/img004.png}
+  \end{center}
+\end{wrapfigure}
+
+En el gráfico se puede observar la métrica en el eje Y, y la experiencia en el eje X.
+
+En un principio, la IA sin ML se puede ver con un desempeño medio. Se puede ver en el gráfico como IA \textbackslash ML, y que cuando se utilizan los algoritmos de ML (sin incluir los algoritmos de DL) al principio tiene un desempeño mediocre, pues no se le ha pasado suficiente experiencia. Esto sigue así hasta llegar a un límite.
+
+Luego, con DL, se puede observar que a medida que la complejidad crece, el desempeño (la métrica) va creciendo a su vez que la experiencia crece, superando con creces a los algoritmos de ML.
+
+
+
+
+
+
+
+
+
+\chapter{Red Neuronal}
+
+\section{El Perceptrón}
+
+Esta corresponde la unidad más básica de una red neuronal. Al principio, el perceptrón fue inspirada en una neurona: una unidad básica del cerebro. El comportamiento de una neurona es, al fin y al cabo, bastante simple; tan simple, que los matemáticos intentaron simularlo para comprobar si se puede obtener pensamiento inteligente. Es así cómo se ``formalizó'' el comportamiento de una neurona de forma matemática, o llevarla a un nivel computacional.
+
+\missingfigure{Dibujo de neurona}
+
+En ese tiempo, los matemáticos vieron que cómo una neurona tenía un funcionamiento ``simple'' que intentaron replicarlo computacionalmente, siendo la creación es esto el \emphname[]{Perceptrón}
+
+\missingfigure{Perceptrón}
+
+% nombremos $u$ como la suma del input ponderado
+
+\begin{eqnarray}
+    u &=& \sum_{i=1}^{k} w_k x_k + b\\
+    y &=& f(u)
+\end{eqnarray}
+
+Donde $f$ es la función de activación, $b$ es el sesgo (a.k.a. \textit{bias}) y $w$ son los pesos.
+
+La función de activación más simple es la función escalón \texttt{step}
+
+% \begin{equation}
+    % step = 
+    % \begin{cases}
+    %     0 &\mbox{si } x\leq 0\\
+    %     1 &\mbox{si } x\geq 0
+    % \end{cases}
+    
+% \end{equation}
+
+\missingfigure{Función escalón}
+
+La función que dominó por mucho tiempo es la función \texttt{sigmoid}
+
+\missingfigure{Función sigmoid}
+
+Está la tangente hiperbólica $\tanh$
+
+\missingfigure{Función hiperbólica}
+
+Tenemos a la función $relu$\FMG{Hacer comando para las funciones de activación}
+
+\missingfigure{Función relu}
+
+Y por último, tenemos a la función lineal (que es básicamente la función identidad) $lin$
+
+\missingfigure{Función lin}
+
