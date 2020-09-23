@@ -96,48 +96,130 @@ Luego, con DL, se puede observar que a medida que la complejidad crece, el desem
 \section{El Perceptrón}
 
 Esta corresponde la unidad más básica de una red neuronal. Al principio, el perceptrón fue inspirada en una neurona: una unidad básica del cerebro. El comportamiento de una neurona es, al fin y al cabo, bastante simple; tan simple, que los matemáticos intentaron simularlo para comprobar si se puede obtener pensamiento inteligente. Es así cómo se ``formalizó'' el comportamiento de una neurona de forma matemática, o llevarla a un nivel computacional.
+\begin{figure}
+\begin{subfigure}{.47\textwidth}
+    \centering
+    \includegraphics[width=\linewidth]{img/img005_neu_real.jpg}
+    \caption{Representación de una neurona ``real''.}
+    \label{fig:neu-real}
+\end{subfigure}
+\begin{subfigure}{.47\textwidth}
+    \centering
+    \includegraphics[width=.6\linewidth]{img/img006_neu_falsa.jpg}
+    \caption{Representación del Perceptrón.}
+    \label{fig:neu-virt}
+\end{subfigure}
+\end{figure}
 
-\missingfigure{Dibujo de neurona}
 
-En ese tiempo, los matemáticos vieron que cómo una neurona tenía un funcionamiento ``simple'' que intentaron replicarlo computacionalmente, siendo la creación es esto el \emphname[]{Perceptrón}
+\textbf{¿Cómo funciona el Perceptrón?} Tendremos la variable $u$ que representa cuánta información está recibiendo el Perceptrón. Esta variable será la suma de las variables por sus pesos (más un sesgo, a.k.a. bias)
+\begin{equation}
+    u = x_1 \cdot w_1 + x_2 \cdot w_2 + \ldots + x_k \cdot w_k + b
+\end{equation}
 
-\missingfigure{Perceptrón}
+Mientras que la salida del perceptrón $y$ será $u$ aplicada en alguna función, llamada \emphname[Función de Activación]{función de activación}
+\begin{equation}
+    y = f(u)
+\end{equation}
 
-% nombremos $u$ como la suma del input ponderado
+\subsection{Funciones de activación}
 
-\begin{eqnarray}
-    u &=& \sum_{i=1}^{k} w_k x_k + b\\
-    y &=& f(u)
-\end{eqnarray}
+A continuación se verán los distintos tipos de funciones de activación que existen:
 
-Donde $f$ es la función de activación, $b$ es el sesgo (a.k.a. \textit{bias}) y $w$ son los pesos.
-
-La función de activación más simple es la función escalón \texttt{step}
-
-% \begin{equation}
-    % step = 
-    % \begin{cases}
-    %     0 &\mbox{si } x\leq 0\\
-    %     1 &\mbox{si } x\geq 0
-    % \end{cases}
-    
-% \end{equation}
+\subsubsection*{Función escalón}
+Es una función que no se ocupará mucho, sin embargo, es la más simple de todas. 
+\begin{equation}
+    \step(x)=
+    \begin{cases}
+    1 & \mbox{si } x\geq 0\\
+    0 & \mbox{si } x\leq 0
+    \end{cases}
+\end{equation}
 
 \missingfigure{Función escalón}
 
-La función que dominó por mucho tiempo es la función \texttt{sigmoid}
+\subsubsection*{Función sigmoide}
+La idea de la función sigmoide es que es como la función escalón, pero es continua y ``suave''
+\begin{equation}
+    \sigmoid(x) = \frac{1}{1 + e^{-x}}
+\end{equation}
 
-\missingfigure{Función sigmoid}
+\missingfigure{Función sigmoide}
 
-Está la tangente hiperbólica $\tanh$
+\subsubsection*{Función tangente hiperbólica}
+Esta función de activación es cómo el símil de la función sigmoide, solo que en el régimen negativo tiende a -1 en vez de a 0. Esto se interpreta como que el perceptrón ``chupa información'' en los negativos, y ``bota información'' en los positivos.
 
-\missingfigure{Función hiperbólica}
+Por mucho tiempo no se ocupó esta función de activación en los Perceptrones, principalmente porque la gente que trabaja en esta área eran muy puristas, y decían que los Perceptrones deben de parecerse lo más que se pueda a las neuronas.
 
-Tenemos a la función $relu$\FMG{Hacer comando para las funciones de activación}
+Veremos más adelante que esta función de activación, en algunos casos, tiene mejor desempeño que la función sigmoide.
+\begin{equation}
+    \tanh(x) = \frac{e^u - e^{-u}}{e^u + e^{-u}}
+\end{equation}
 
-\missingfigure{Función relu}
+\missingfigure{Función Tangente hiperbólica}
 
-Y por último, tenemos a la función lineal (que es básicamente la función identidad) $lin$
+\subsubsection*{Función ReLU}
+
+Esta función viene del nombre Rectified Linear Unit.
+
+La definición es bastante sencilla:
+\begin{equation}
+    \relu(x) = 
+    \begin{cases}
+        u & \mbox{si } u>0\\
+        0 & \mbox{si } u\leq0\\
+    \end{cases}
+\end{equation}
+
+\missingfigure{Función ReLU}
+
+\subsubsection*{Función lineal}
+
+Esta función es la más sencilla de todas, que es prácticamente la identidad.
+
+\begin{equation}
+    \lin(x) = x
+\end{equation}
 
 \missingfigure{Función lin}
 
+\section{}
+\FMG{Incluir la definición de Red Neuronal y sus capas}
+
+\missingfigure{Dibujo de la red neuronal}
+
+\FMG{Incluir el ejemplo de XOR}
+
+Al final, dentro del dibujo, lo que más importante es lo que describen las ecuaciones:
+\begin{eqnarray}
+\bm{h} &=& f(\bm{x} W + \bm{b})\\
+y &=& g(\bm{h} U + c)
+\end{eqnarray}
+
+Ahora veremos el siguiente teorema:
+
+\begin{theorem}\namethm[UAT]{Teorema de Aproximación Universal}
+Sea $F$ una función continua $[0, 1]^k \to [0, 1]$, entonces para todo $\epsilon>0$ existen $W, \bm{b}, U$ tal que $F(x) = \sigmoid(\bm{x}W + \bm{b})U$ se tiene que:
+\begin{equation}
+    |f(x) - F(x)|< \epsilon \quad \forall x \in [0, 1]^k
+\end{equation}
+
+\end{theorem}
+
+Lo importante de este teorema, es que nos garantiza que tan solo basta la estructura de la red neuronal para acercarse a cualquier función continua tanto como uno quiera.
+
+Notemos que el teorema te dice que existen los parámetros, pero no te dicen de qué dimensiones son. Existen estudios que dicen que las cotas son estúpidamente grandes, y que realmente es infactible hacer una única red neuronal ``apilando'' Perceptrones. 
+
+Sin embargo, hay otros estudios que dicen que la efectividad aumenta conforme se van apilando Perceptrones, pero que se necesitan tantos como un crecimiento exponencial, mientras que si se agregan más capas ocultas, se necesitará un orden lineal.
+
+Esto último nos motiva a añadir más capas ocultas, de esta forma:
+\missingfigure{Red Neuronal con muchas capas}
+
+Esta forma de red neuronal se llama MLP
+
+La descripción matemática es la siguiente:
+\begin{eqnarray}
+\bm{h}^{(0)} &=& \bm{x}\\
+\bm{h}^{(i)} &=& f^{(i)}(\bm{h}^{(i-1)} W^{(i)} + \bm{b}^{(i)})\\
+y &=& g(\bm{h}^{(L)}U + c)
+\end{eqnarray}
