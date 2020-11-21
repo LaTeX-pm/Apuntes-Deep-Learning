@@ -9,13 +9,20 @@
 \usepackage[]{graphicx}
 \usepackage{subcaption}
 \usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{hyperref}
 \usepackage{bm}
+\usepackage{tikz}
+\def\checkmark{\tikz\fill[scale=0.4](0,.35) -- (.25,0) -- (1,.7) -- (.25,.15) -- cycle;} 
+\usepackage{spalign}
+\usepackage[ruled,vlined]{algorithm2e}
 
 \usepackage{silence}
 % Disable all warnings issued by latex starting with "You have..." tex.stackexchange.com/questions/186967/you-have-requested-package-include-foo-but-the-package-provides-foo
 \WarningFilter{latex}{You have requested package}
 
-\usepackage[color]{pkg/theoremenvFMG} % Carga los entornos de los teoremas. Tiene la opción de mostrar colores en el nombre del teorema, si es que se le entrega la opción de "color".
+\usepackage[]{pkg/theoremenvFMG} % Carga los entornos de los teoremas. Tiene la opción de mostrar colores en el nombre del teorema, si es que se le entrega la opción de "color".
 \usepackage[showmn]{pkg/marginnotesFMG} % Paquetes para hacer notas al margen. Se pueden desactivar todas las notas quitando la opción "showmn"
 \usepackage[]{pkg/todonotesFMG}
 
@@ -43,6 +50,19 @@
 \DeclareMathOperator{\sigmoid}{sigmoid}
 \DeclareMathOperator{\relu}{ReLU}
 \DeclareMathOperator{\lin}{lin}
+\DeclareMathOperator{\forward}{Forward}
+\DeclareMathOperator{\softmax}{softmax}
+\DeclareMathOperator{\error}{error}
+\DeclareMathOperator{\penalt}{penalty}
+\DeclareMathOperator*{\argmin}{arg\,min}
+\newcommand{\prob}{\mathbb{P}}
+\let\oldL=\L
+\renewcommand{\L}{\mathcal{L}}
+
+\newcommand{\hy}{\hat{y}}
+\newcommand{\conj}[1]{\left\{#1\right\}}
+\newcommand{\norm}[1]{\left\|#1\right\|}
+\newcommand{\entr}[1][i]{^{(#1)}}
 
 \let\oldepsilon=\epsilon
 \let\oldvarepsilon=\varepsilon

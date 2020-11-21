@@ -31,12 +31,10 @@
 
 %% Cuerpo del paquete, la mayor parte de las declaraciones aparecen aquí.
 
-\newcommand{\showmncommand}[2]{% comando para elegir si activar las notas al margen o no
-    \ifthenelse{\equal{\showmnoption}{true}}{#1}{#2}
-}
-\newcommand{\MarginNote}[1]{% Genera una nota al margen si es que la opción shownm está activada
-    \showmncommand{\marginpar{#1}}{}
-}
+% comando para elegir si activar las notas al margen o no
+\newcommand{\showmncommand}[2]{\ifthenelse{\equal{\showmnoption}{true}}{#1}{#2}}
+% Genera una nota al margen si es que la opción shownm está activada
+\newcommand{\MarginNote}[1]{\showmncommand{\marginpar{#1}}{}}
 
 % \namethm[texto nota al margen]{texto en negrita y con paréntesis}: Ocupado para los nombres de los teoremas. Si es que en el argumento de los paréntesis cuadrado no se entrega nada, automáticamente tomará el argumento con las llaves para la nota al margen.
 \def\estilonamethm {\rmfamily\bfseries\upshape} % Define el estilo del contenido de \namethm
